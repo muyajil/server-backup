@@ -1,0 +1,36 @@
+version: "3"
+services:
+  # START Backup Service
+  backup:
+    image: muyajil/borg-backup-service:latest
+    environment:
+      BORG_USER: ${BORG_USER}
+      BORG_HOST: ${BORG_HOST}
+      BORG_PORT: ${BORG_PORT}
+      BORG_REPO_PATH_ON_HOST: ${BORG_REPO_PATH_ON_HOST}
+      ARCHIVE_NAME: ${ARCHIVE_NAME}
+      BORG_PASSPHRASE: ${BORG_PASSPHRASE}
+      BORG_KEYS_DIR: /borg_keys
+      HOURLY_BACKUPS: 1
+      DAILY_BACKUPS: 7
+      WEEKLY_BACKUPS: 4
+      SSH_KEY_PATH: /id_rsa
+      SLACK_WEBHOOK: ${SLACK_WEBHOOK}
+    volumes:
+      - ${BACKUP_SOURCE}:/backup_source
+      - ${SSH_KEY_PATH}:/id_rsa
+      - ${BORG_KEYS_DIR}:/borg_keys
+    restart: unless-stopped
+  # END Backup Service
+  # START gphotos-syncer
+  gphotos-syncer:
+    image: jakewharton/gphotos-sync:latest
+    restart: unless-stopped
+    volumes:
+      - ${CONFIG_PATH}:/tmp/gphotos-cdp
+      - ${PHOTOS_PATH}:/download
+    environment:
+      CRON: 0 4 * * *
+      PUID: 1000
+      PGID: 1000
+  # END gphotos-syncer
