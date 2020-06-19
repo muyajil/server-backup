@@ -21,6 +21,7 @@ services:
       - ${BACKUP_SOURCE}:/backup_source
       - ${SSH_KEY_PATH}:/id_rsa
       - ${BORG_KEYS_DIR}:/borg_keys
+      - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
   # END Backup Service
   # START gphotos-syncer
