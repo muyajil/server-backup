@@ -25,13 +25,13 @@ services:
   # END Backup Service
   # START gphotos-syncer
   gphotos-syncer:
-    image: jakewharton/gphotos-sync:latest
+    image: muyajil/gphotos-syncer:latest
     restart: unless-stopped
+    user: 1000:1000
     volumes:
-      - ${CONFIG_PATH}:/tmp/gphotos-cdp
+      - ${CONFIG_PATH}:/config
       - ${PHOTOS_PATH}:/download
     environment:
-      CRON: 0 4 * * *
-      PUID: 1000
-      PGID: 1000
+      SLACK_WEBHOOK: ${SLACK_WEBHOOK}
+      CLIENT_SECRET: ${CLIENT_SECRET}
   # END gphotos-syncer
