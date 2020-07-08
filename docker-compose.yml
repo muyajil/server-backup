@@ -36,3 +36,22 @@ services:
       SLACK_WEBHOOK: ${SLACK_WEBHOOK}
       CLIENT_SECRET: ${CLIENT_SECRET}
   # END gphotos-syncer
+  # START cubebackup
+  gsuite-backup:
+    image: cubebackup/cubebackup:latest
+    restart: unless-stopped
+    user: 1000:1000
+    volumes:
+      - ${CUBE_BACKUP_PATH}/config:/opt
+      - ${CUBE_BACKUP_PATH}/index:/cube_index
+      - ${GSUITE_BACKUP_PATH}:/gsuite_backup
+    environment: 
+      VIRTUAL_HOST: cubebackup.${TLD}
+      LETSENCRYPT_HOST: cubebackup.${TLD}
+      VIRTUAL_PORT: 80
+    networks:
+      - base-network
+  # END cubebackup
+networks:
+  base-network:
+    external: true
