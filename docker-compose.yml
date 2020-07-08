@@ -54,8 +54,7 @@ services:
   # END cubebackup
   # START Duplicati
   duplicati:
-    image: linuxserver/duplicati
-    container_name: duplicati
+    image: linuxserver/duplicati:latest
     environment:
       PUID: 0
       PGID: 0
