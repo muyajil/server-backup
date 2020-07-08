@@ -42,7 +42,9 @@ services:
     restart: unless-stopped
     user: 1000:1000
     volumes:
-      - ${CUBE_BACKUP_PATH}/config:/opt
+      - type: volume
+        source: ${CUBE_BACKUP_PATH}/config
+        target: /opt
       - ${CUBE_BACKUP_PATH}/index:/cube_index
       - ${GSUITE_BACKUP_PATH}:/gsuite_backup
     environment: 
