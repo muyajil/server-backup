@@ -40,7 +40,7 @@ services:
   gsuite-backup:
     image: cubebackup/cubebackup:latest
     restart: unless-stopped
-    user: 1000:1000
+    # user: 1000:1000
     volumes:
       - ${CUBE_BACKUP_PATH}/config:/opt/cubebackup/db
       - ${CUBE_BACKUP_PATH}/index:/cube_index
