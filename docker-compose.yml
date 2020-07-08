@@ -63,9 +63,11 @@ services:
       LETSENCRYPT_HOST: duplicati.${TLD}
       VIRTUAL_PORT: 8200
       CLI_ARGS: #optional
+      SLACK_WEBHOOK: ${SLACK_WEBHOOK}
     volumes:
       - ${VOLUMES_PATH}/duplicati:/config
       - ${SSH_KEY_PATH}:/id_rsa
+      - ./slack_notify.sh:/slack_notify.sh
       - /home:/source
     restart: unless-stopped
     networks:
