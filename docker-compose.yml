@@ -70,6 +70,6 @@ services:
     networks:
       - base-network
   # END Duplicati
-  networks:
+networks:
   base-network:
     external: true
