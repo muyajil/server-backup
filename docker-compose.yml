@@ -42,8 +42,8 @@ services:
     restart: unless-stopped
     # user: 1000:1000
     volumes:
-      - ${CUBE_BACKUP_PATH}/config:/opt/cubebackup/db
-      - ${CUBE_BACKUP_PATH}/index:/cube_index
+      - ${VOLUMES_PATH}/cubebackup/config:/opt/cubebackup/db
+      - ${VOLUMES_PATH}/cubebackup/index:/cube_index
       - ${GSUITE_BACKUP_PATH}:/gsuite_backup
     environment: 
       VIRTUAL_HOST: cubebackup.${TLD}
@@ -52,6 +52,25 @@ services:
     networks:
       - base-network
   # END cubebackup
-networks:
+  # START Duplicati
+  duplicati:
+    image: linuxserver/duplicati
+    container_name: duplicati
+    environment:
+      PUID: 0
+      PGID: 0
+      TZ: Europe/London
+      VIRTUAL_HOST: duplicati.${TLD}
+      LETSENCRYPT_HOST: duplicati.${TLD}
+      VIRTUAL_PORT: 8200
+      CLI_ARGS: #optional
+    volumes:
+      - ${VOLUMES_PATH}/duplicati:/config
+      - /home:/source
+    restart: unless-stopped
+    networks:
+      - base-network
+  # END Duplicati
+  networks:
   base-network:
     external: true
