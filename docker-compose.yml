@@ -45,6 +45,7 @@ services:
       - type: volume
         source: cubebackup_config
         target: /opt
+      - ${CUBE_BACKUP_PATH}/config:/opt/cubebackup/db
       - ${CUBE_BACKUP_PATH}/index:/cube_index
       - ${GSUITE_BACKUP_PATH}:/gsuite_backup
     environment: 
@@ -57,11 +58,3 @@ services:
 networks:
   base-network:
     external: true
-
-volumes:
-  cubebackup_config:
-    driver: local
-    driver_opts:
-      type: none
-      device: ${CUBE_BACKUP_PATH}/config
-      o: bind
