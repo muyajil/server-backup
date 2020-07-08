@@ -1,4 +1,4 @@
-version: "3"
+version: "3.2"
 services:
   # START Backup Service
   backup:
@@ -45,12 +45,8 @@ services:
       - type: volume
         source: ${CUBE_BACKUP_PATH}/config
         target: /opt
-      - type: bind
-        source: ${CUBE_BACKUP_PATH}/index
-        target: /cube_index
-      - type: bind
-        source: ${GSUITE_BACKUP_PATH}
-        target: /gsuite_backup
+      - ${CUBE_BACKUP_PATH}/index:/cube_index
+      - ${GSUITE_BACKUP_PATH}:/gsuite_backup
     environment: 
       VIRTUAL_HOST: cubebackup.${TLD}
       LETSENCRYPT_HOST: cubebackup.${TLD}
