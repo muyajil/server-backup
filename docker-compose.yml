@@ -65,6 +65,7 @@ services:
       CLI_ARGS: #optional
     volumes:
       - ${VOLUMES_PATH}/duplicati:/config
+      - ${SSH_KEY_PATH}:/id_rsa
       - /home:/source
     restart: unless-stopped
     networks:
