@@ -1,0 +1,41 @@
+{
+  "CreatedByVersion": "2.0.5.1",
+  "Schedule": null,
+  "Backup": {
+    "ID": "3",
+    "Name": "Photos",
+    "Description": "",
+    "Tags": [],
+    "TargetURL": "ssh://phyrat-nas.synology.me:22223/backup/photos_ajil?auth-username=srv-user&ssh-accept-any-fingerprints=true&ssh-keyfile=/id_rsa",
+    "DBPath": "/config/BHKGKCRLJI.sqlite",
+    "Sources": [
+      "/source/srv-user/media/photos/"
+    ],
+    "Settings": [
+      {
+        "Filter": "",
+        "Name": "encryption-module",
+        "Value": "aes",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "compression-module",
+        "Value": "zip",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "dblock-size",
+        "Value": "50mb",
+        "Argument": null
+      }
+    ],
+    "Filters": [],
+    "Metadata": {},
+    "IsTemporary": false
+  },
+  "DisplayNames": {
+    "/source/srv-user/media/photos/": "photos"
+  }
+}

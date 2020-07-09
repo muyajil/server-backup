@@ -1,0 +1,73 @@
+{
+  "CreatedByVersion": "2.0.5.1",
+  "Schedule": null,
+  "Backup": {
+    "ID": "1",
+    "Name": "User Data",
+    "Description": "",
+    "Tags": [],
+    "TargetURL": "ssh://phyrat-nas.synology.me:22223/backup/user_data?auth-username=srv-user&ssh-keyfile=/id_rsa&ssh-accept-any-fingerprints=true",
+    "DBPath": "/config/PEUVGGSWKO.sqlite",
+    "Sources": [
+      "/source/"
+    ],
+    "Settings": [
+      {
+        "Filter": "",
+        "Name": "encryption-module",
+        "Value": "aes",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "compression-module",
+        "Value": "zip",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "dblock-size",
+        "Value": "50mb",
+        "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "retention-policy",
+        "Value": "1W:1D,4W:1W,12M:1M",
+        "Argument": null
+      }
+    ],
+    "Filters": [
+      {
+        "Order": 0,
+        "Include": false,
+        "Expression": "/source/srv-user/media/"
+      },
+      {
+        "Order": 1,
+        "Include": false,
+        "Expression": "/source/srv-user/volumes/plex/library/Library/Application Support/Plex Media Server/Cache/"
+      },
+      {
+        "Order": 2,
+        "Include": false,
+        "Expression": "/source/srv-user/mount/"
+      },
+      {
+        "Order": 3,
+        "Include": false,
+        "Expression": "/source/srv-user/gsuite_backup/"
+      },
+      {
+        "Order": 4,
+        "Include": false,
+        "Expression": "/source/srv-user/volumes/"
+      }
+    ],
+    "Metadata": {},
+    "IsTemporary": false
+  },
+  "DisplayNames": {
+    "/source/": "source"
+  }
+}
