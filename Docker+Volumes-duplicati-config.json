@@ -29,6 +29,12 @@
         "Name": "dblock-size",
         "Value": "50mb",
         "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "retention-policy",
+        "Value": "1W:1D,4W:1W,12M:1M",
+        "Argument": null
       }
     ],
     "Filters": [
