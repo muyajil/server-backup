@@ -1,6 +1,24 @@
 {
   "CreatedByVersion": "2.0.5.1",
-  "Schedule": null,
+  "Schedule": {
+    "ID": 1,
+    "Tags": [
+      "ID=4"
+    ],
+    "Time": "2020-07-09T23:00:00Z",
+    "Repeat": "1D",
+    "LastRun": "0001-01-01T00:00:00Z",
+    "Rule": "AllowedWeekDays=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",
+    "AllowedDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri",
+      "sat",
+      "sun"
+    ]
+  },
   "Backup": {
     "ID": "4",
     "Name": "G Suite",
@@ -38,7 +56,22 @@
       }
     ],
     "Filters": [],
-    "Metadata": {},
+    "Metadata": {
+      "LastBackupDate": "20200709T125147Z",
+      "BackupListCount": "2",
+      "TotalQuotaSpace": "0",
+      "FreeQuotaSpace": "0",
+      "AssignedQuotaSpace": "-1",
+      "TargetFilesSize": "133134593602",
+      "TargetFilesCount": "5082",
+      "TargetSizeString": "123.99 GB",
+      "SourceFilesSize": "137524802978",
+      "SourceFilesCount": "109308",
+      "SourceSizeString": "128.08 GB",
+      "LastBackupStarted": "20200709T125147Z",
+      "LastBackupFinished": "20200709T125357Z",
+      "LastBackupDuration": "00:02:09.9406140"
+    },
     "IsTemporary": false
   },
   "DisplayNames": {

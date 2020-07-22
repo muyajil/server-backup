@@ -1,6 +1,24 @@
 {
   "CreatedByVersion": "2.0.5.1",
-  "Schedule": null,
+  "Schedule": {
+    "ID": 2,
+    "Tags": [
+      "ID=1"
+    ],
+    "Time": "2020-07-09T23:30:00Z",
+    "Repeat": "1D",
+    "LastRun": "0001-01-01T00:00:00Z",
+    "Rule": "AllowedWeekDays=Tuesday,Monday,Wednesday,Thursday,Friday,Sunday,Saturday",
+    "AllowedDays": [
+      "tue",
+      "mon",
+      "wed",
+      "thu",
+      "fri",
+      "sun",
+      "sat"
+    ]
+  },
   "Backup": {
     "ID": "1",
     "Name": "User Data",
@@ -64,7 +82,22 @@
         "Expression": "/source/srv-user/volumes/"
       }
     ],
-    "Metadata": {},
+    "Metadata": {
+      "LastBackupDate": "20200709T125532Z",
+      "BackupListCount": "1",
+      "TotalQuotaSpace": "0",
+      "FreeQuotaSpace": "0",
+      "AssignedQuotaSpace": "-1",
+      "TargetFilesSize": "4544109155",
+      "TargetFilesCount": "175",
+      "TargetSizeString": "4.23 GB",
+      "SourceFilesSize": "20283460512",
+      "SourceFilesCount": "110117",
+      "SourceSizeString": "18.89 GB",
+      "LastBackupStarted": "20200709T125530Z",
+      "LastBackupFinished": "20200709T132620Z",
+      "LastBackupDuration": "00:30:50.0515260"
+    },
     "IsTemporary": false
   },
   "DisplayNames": {

@@ -1,6 +1,24 @@
 {
   "CreatedByVersion": "2.0.5.1",
-  "Schedule": null,
+  "Schedule": {
+    "ID": 6,
+    "Tags": [
+      "ID=5"
+    ],
+    "Time": "2020-07-23T13:00:00Z",
+    "Repeat": "1D",
+    "LastRun": "0001-01-01T00:00:00Z",
+    "Rule": "AllowedWeekDays=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",
+    "AllowedDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri",
+      "sat",
+      "sun"
+    ]
+  },
   "Backup": {
     "ID": "5",
     "Name": "TV",
@@ -15,7 +33,7 @@
       {
         "Filter": "",
         "Name": "encryption-module",
-        "Value": "aes",
+        "Value": "",
         "Argument": null
       },
       {
@@ -27,7 +45,7 @@
       {
         "Filter": "",
         "Name": "dblock-size",
-        "Value": "50mb",
+        "Value": "500MB",
         "Argument": null
       },
       {
@@ -35,10 +53,19 @@
         "Name": "retention-policy",
         "Value": "1W:1D,4W:1W,12M:1M",
         "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "--no-encryption",
+        "Value": "true",
+        "Argument": null
       }
     ],
     "Filters": [],
-    "Metadata": {},
+    "Metadata": {
+      "LastErrorDate": "20200722T090333Z",
+      "LastErrorMessage": "One or more errors occurred. (Object reference not set to an instance of an object (Object reference not set to an instance of an object) (One or more errors occurred. (One or more errors occurred. (Connection refused) (Server response does not contain SSH protocol identification.) (Server response does not contain SSH protocol identification.))))"
+    },
     "IsTemporary": false
   },
   "DisplayNames": {

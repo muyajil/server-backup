@@ -1,6 +1,24 @@
 {
   "CreatedByVersion": "2.0.5.1",
-  "Schedule": null,
+  "Schedule": {
+    "ID": 5,
+    "Tags": [
+      "ID=2"
+    ],
+    "Time": "2020-07-14T00:30:00Z",
+    "Repeat": "1D",
+    "LastRun": "0001-01-01T00:00:00Z",
+    "Rule": "AllowedWeekDays=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",
+    "AllowedDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri",
+      "sat",
+      "sun"
+    ]
+  },
   "Backup": {
     "ID": "2",
     "Name": "Movies",
@@ -15,7 +33,7 @@
       {
         "Filter": "",
         "Name": "encryption-module",
-        "Value": "aes",
+        "Value": "",
         "Argument": null
       },
       {
@@ -27,7 +45,7 @@
       {
         "Filter": "",
         "Name": "dblock-size",
-        "Value": "50mb",
+        "Value": "500MB",
         "Argument": null
       },
       {
@@ -35,10 +53,36 @@
         "Name": "retention-policy",
         "Value": "1W:1D,4W:1W,12M:1M",
         "Argument": null
+      },
+      {
+        "Filter": "",
+        "Name": "--no-encryption",
+        "Value": "true",
+        "Argument": null
       }
     ],
     "Filters": [],
-    "Metadata": {},
+    "Metadata": {
+      "LastErrorDate": "20200710T130259Z",
+      "LastErrorMessage": "Object reference not set to an instance of an object",
+      "LastBackupDate": "20200710T131432Z",
+      "BackupListCount": "2",
+      "TotalQuotaSpace": "0",
+      "FreeQuotaSpace": "0",
+      "AssignedQuotaSpace": "-1",
+      "TargetFilesSize": "2426038761552",
+      "TargetFilesCount": "9259",
+      "TargetSizeString": "2.21 TB",
+      "SourceFilesSize": "2417958438735",
+      "SourceFilesCount": "7621",
+      "SourceSizeString": "2.20 TB",
+      "LastBackupStarted": "20200710T131432Z",
+      "LastBackupFinished": "20200713T133345Z",
+      "LastBackupDuration": "3.00:19:13.3282750",
+      "LastCompactDuration": "05:17:41.2771910",
+      "LastCompactStarted": "20200713T080715Z",
+      "LastCompactFinished": "20200713T132456Z"
+    },
     "IsTemporary": false
   },
   "DisplayNames": {

@@ -1,6 +1,24 @@
 {
   "CreatedByVersion": "2.0.5.1",
-  "Schedule": null,
+  "Schedule": {
+    "ID": 3,
+    "Tags": [
+      "ID=6"
+    ],
+    "Time": "2020-07-10T00:00:00Z",
+    "Repeat": "1D",
+    "LastRun": "0001-01-01T00:00:00Z",
+    "Rule": "AllowedWeekDays=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",
+    "AllowedDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri",
+      "sat",
+      "sun"
+    ]
+  },
   "Backup": {
     "ID": "6",
     "Name": "Docker Volumes",
