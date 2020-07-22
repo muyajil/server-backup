@@ -5,7 +5,7 @@
     "Tags": [
       "ID=5"
     ],
-    "Time": "2020-07-23T13:00:00Z",
+    "Time": "2020-07-23T01:00:00Z",
     "Repeat": "1D",
     "LastRun": "0001-01-01T00:00:00Z",
     "Rule": "AllowedWeekDays=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday",
