@@ -1,29 +1,5 @@
 version: "3.2"
 services:
-  # START Backup Service
-  backup:
-    image: muyajil/borg-backup-service:latest
-    environment:
-      BORG_USER: ${BORG_USER}
-      BORG_HOST: ${BORG_HOST}
-      BORG_PORT: ${BORG_PORT}
-      BORG_REPO_PATH_ON_HOST: ${BORG_REPO_PATH_ON_HOST}
-      BORG_OPTIONS: ${BORG_OPTIONS}
-      ARCHIVE_NAME: ${ARCHIVE_NAME}
-      BORG_PASSPHRASE: ${BORG_PASSPHRASE}
-      BORG_KEYS_DIR: /borg_keys
-      HOURLY_BACKUPS: 1
-      DAILY_BACKUPS: 7
-      WEEKLY_BACKUPS: 4
-      SSH_KEY_PATH: /id_rsa
-      SLACK_WEBHOOK: ${SLACK_WEBHOOK}
-    volumes:
-      - ${BACKUP_SOURCE}:/backup_source
-      - ${SSH_KEY_PATH}:/id_rsa
-      - ${BORG_KEYS_DIR}:/borg_keys
-      - /etc/localtime:/etc/localtime:ro
-    restart: unless-stopped
-  # END Backup Service
   # START gphotos-syncer
   gphotos-syncer:
     image: muyajil/gphotos-syncer:latest
@@ -68,7 +44,7 @@ services:
       - ${VOLUMES_PATH}/duplicati:/config
       - ${SSH_KEY_PATH}:/id_rsa
       - ./slack_notify.sh:/slack_notify.sh
-      - /home:/source
+      - ${BACKUP_SOURCE}:/source
     restart: unless-stopped
     networks:
       - base-network
