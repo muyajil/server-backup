@@ -54,6 +54,7 @@ services:
     image: erichough/duplicacy
     hostname: srv.ajil.ch
     restart: unless-stopped
+    user: 0:0
     cap_drop:
       - ALL
     environment:
