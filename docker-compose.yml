@@ -49,6 +49,25 @@ services:
     networks:
       - base-network
   # END Duplicati
+  # START Duplicacy
+  duplicacy:
+    image: erichough/duplicacy
+    hostname: srv.ajil.ch
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    environment:
+      VIRTUAL_HOST: duplicacy.${TLD}
+      LETSENCRYPT_HOST: duplicacy.${TLD}
+      VIRTUAL_PORT: 3875
+    volumes:
+      - /etc/machine-id:/var/lib/dbus-machine-id:ro
+      - ${VOLUMES_PATH}/duplicacy/config:/etc/duplicacy
+      - ${VOLUMES_PATH}/duplicacy/cache:/var/cache/duplicacy
+      - ${BACKUP_SOURCE}:/storage
+    networks:
+      - base-network
+  # END Duplicacy
 networks:
   base-network:
     external: true
