@@ -28,44 +28,24 @@ services:
     networks:
       - base-network
   # END cubebackup
-  # START Duplicati
-  duplicati:
-    image: linuxserver/duplicati:latest
-    environment:
-      PUID: 0
-      PGID: 0
-      TZ: Europe/London
-      VIRTUAL_HOST: duplicati.${TLD}
-      LETSENCRYPT_HOST: duplicati.${TLD}
-      VIRTUAL_PORT: 8200
-      CLI_ARGS: #optional
-      SLACK_WEBHOOK: ${SLACK_WEBHOOK}
-    volumes:
-      - ${VOLUMES_PATH}/duplicati:/config
-      - ${SSH_KEY_PATH}:/id_rsa
-      - ./slack_notify.sh:/slack_notify.sh
-      - ${BACKUP_SOURCE}:/source
-    restart: unless-stopped
-    networks:
-      - base-network
-  # END Duplicati
   # START Duplicacy
   duplicacy:
-    image: erichough/duplicacy
+    image: saspus/duplicacy-web:latest
     hostname: srv.ajil.ch
     restart: unless-stopped
-    user: 0:0
-    cap_drop:
-      - ALL
     environment:
       VIRTUAL_HOST: duplicacy.${TLD}
       LETSENCRYPT_HOST: duplicacy.${TLD}
       VIRTUAL_PORT: 3875
+      USR_ID: 0
+      GRP_ID: 0
+      TZ: Europe/Zurich
+      DWE_PASSWORD: ${DUPLICACY_PW}
     volumes:
-      - /etc/machine-id:/var/lib/dbus-machine-id:ro
-      - ${VOLUMES_PATH}/duplicacy/config:/etc/duplicacy
-      - ${VOLUMES_PATH}/duplicacy/cache:/var/cache/duplicacy
-      - ${BACKUP_SOURCE}:/storage
+      - ${VOLUMES_PATH}/duplicacy/config:/config
+      - ${VOLUMES_PATH}/duplicacy/cache:/cache
+      - ${BACKUP_SOURCE}:/backuproot:ro
+      - ${SSH_KEY_PATH}:/id_rsa
     networks:
       - base-network
   # END Duplicacy
