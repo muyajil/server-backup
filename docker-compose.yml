@@ -20,7 +20,7 @@ services:
     volumes:
       - ${VOLUMES_PATH}/cubebackup/config:/opt/cubebackup/db
       - ${VOLUMES_PATH}/cubebackup/index:/cube_index
-      - ${GSUITE_BACKUP_PATH}:/gsuite_backup
+      - ${VOLUMES_PATH}/cubebackup/gsuite_backup:/gsuite_backup
     environment: 
       VIRTUAL_HOST: cubebackup.${TLD}
       LETSENCRYPT_HOST: cubebackup.${TLD}
