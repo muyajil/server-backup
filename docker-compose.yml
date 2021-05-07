@@ -44,6 +44,7 @@ services:
     volumes:
       - ${VOLUMES_PATH}/duplicacy/config:/config
       - ${VOLUMES_PATH}/duplicacy/cache:/cache
+      - ${VOLUMES_PATH}/duplicacy/logs:/logs
       - ${BACKUP_SOURCE}:/backuproot:ro
       - ${SSH_KEY_PATH}:/id_rsa
     networks:
