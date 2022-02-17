@@ -1,17 +1,5 @@
 version: "3.2"
 services:
-  # START gphotos-syncer
-  gphotos-syncer:
-    image: muyajil/gphotos-syncer:latest
-    restart: unless-stopped
-    user: 1000:1000
-    volumes:
-      - ${CONFIG_PATH}:/config
-      - ${PHOTOS_PATH}:/download
-    environment:
-      SLACK_WEBHOOK: ${SLACK_WEBHOOK}
-      CLIENT_SECRET: ${CLIENT_SECRET}
-  # END gphotos-syncer
   # START cubebackup
   gsuite-backup:
     image: cubebackup/cubebackup:latest
