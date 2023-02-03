@@ -1,18 +1,5 @@
 version: "3.2"
 services:
-  # START PHOTO SYNC
-  photo-sync:
-    image: muyajil/photo_sync:latest
-    restart: unless-stopped
-    user: 1000:1000
-    environment:
-      SOURCE_ROOT: /source
-      TARGET_ROOT: /target
-      ASSUME_CURRENT_DAY: true
-    volumes:
-      - ${VOLUMES_PATH}/syncthing/photos_landing_zone:/source
-      - ${PHOTOS_PATH}:/target
-  # END PHOTO SYNC
   # START cubebackup
   gsuite-backup:
     image: cubebackup/cubebackup:latest
@@ -22,7 +9,7 @@ services:
       - ${VOLUMES_PATH}/cubebackup/config:/opt/cubebackup/db
       - ${VOLUMES_PATH}/cubebackup/index:/cube_index
       - ${VOLUMES_PATH}/cubebackup/gsuite_backup:/gsuite_backup
-    environment: 
+    environment:
       VIRTUAL_HOST: cubebackup.${TLD}
       LETSENCRYPT_HOST: cubebackup.${TLD}
       VIRTUAL_PORT: 80
